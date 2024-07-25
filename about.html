@@ -3,29 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Stellar Web Solutions</title>
+    <title>Interactive NES Display and Remote</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Stellar Web Solutions</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <h2>About Us</h2>
-        <p>Stellar Web Solutions is dedicated to providing high-quality web development, e-commerce solutions, SEO optimization, and digital marketing services. Our team focuses on delivering exceptional user experiences and fast, reliable support.</p>
-    </main>
-    <footer>
-        <p>Contact us at: <a href="mailto:contact@stellarwebsolutions.com">contact@stellarwebsolutions.com</a></p>
-        <p>Phone: +1 234 567 8900</p>
-    </footer>
+    <div id="container">
+        <div class="screen" id="screen">
+            <div class="no-signal" id="noSignal">No Signal</div>
+            <div class="input-display" id="inputDisplay"></div>
+            <div class="volume-display" id="volumeDisplay">Volume: 50%</div>
+            <div class="speed-display" id="speedDisplay">Speed: 1x</div>
+        </div>
+        <div class="container">
+            <div class="controller">
+                <div class="dpad">
+                    <div class="up" onclick="buttonPressed('UP')"></div>
+                    <div class="down" onclick="buttonPressed('DOWN')"></div>
+                    <div class="left" onclick="buttonPressed('LEFT')"></div>
+                    <div class="right" onclick="buttonPressed('RIGHT')"></div>
+                </div>
+                <div class="center-buttons">
+                    <div class="select" onclick="buttonPressed('SELECT')">SELECT</div>
+                    <div class="start" onclick="buttonPressed('START')">START</div>
+                </div>
+                <div class="action-buttons">
+                    <div class="b-button" onclick="buttonPressed('B')">B</div>
+                    <div class="a-button" onclick="buttonPressed('A')">A</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
