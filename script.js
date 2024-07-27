@@ -27,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             screen.innerHTML = "<div class='starting-up'>One moment, starting up...</div>";
             setTimeout(() => {
                 currentInputIndex = 0;
-                inputDisplay.style.display = 'block';
-                inputDisplay.textContent = inputs[currentInputIndex].name;
+                inputDisplay.style.display = 'block';inputDisplay.textContent = inputs[currentInputIndex].name;
                 volumeDisplay.style.display = 'block';
                 speedDisplay.style.display = 'block';
                 updateScreen();
