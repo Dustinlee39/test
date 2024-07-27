@@ -160,3 +160,23 @@ body {
 }
 .b-button { grid-column: 1; }
 .a-button { grid-column: 2; }
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .controller {
+        width: 90%;
+        max-width: 300px;
+    }
+    .dpad div, .center-buttons div, .action-buttons div {
+        width: 25px;
+        height: 25px;
+    }
+    .center-buttons div {
+        width: 60px;
+        height: 25px;
+    }
+    .action-buttons div {
+        width: 30px;
+        height: 30px;
+    }
+}
