@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded and parsed');
     const noSignal = document.getElementById('noSignal');
     const inputDisplay = document.getElementById('inputDisplay');
     const volumeDisplay = document.getElementById('volumeDisplay');
@@ -17,10 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let speed = 1;
 
     function powerButton() {
+        console.log('Power button pressed');
         powerOn = !powerOn;
         const screen = document.getElementById('screen');
 
         if (powerOn) {
+            console.log('Powering on');
             screen.innerHTML = "<div class='starting-up'>One moment, starting up...</div>";
             setTimeout(() => {
                 currentInputIndex = 0;
@@ -31,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateScreen();
             }, 3000);
         } else {
+            console.log('Powering off');
             screen.style.backgroundColor = 'black';
             screen.innerHTML = '';
             inputDisplay.style.display = 'none';
@@ -45,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function inputButton() {
+        console.log('Input button pressed');
         if (powerOn) {
             currentInputIndex = (currentInputIndex + 1) % inputs.length;
             inputDisplay.textContent = inputs[currentInputIndex].name;
@@ -55,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buttonPressed(button) {
-        console.log(button + ' button pressed');
+        console.log(`${button} button pressed`);
         switch(button) {
             case 'START':
                 powerButton();
@@ -106,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateScreen() {
+        console.log('Updating screen');
         const screen = document.getElementById('screen');
         screen.innerHTML = '<iframe id="videoIframe" width="100%" height="100%" src="' + inputs[currentInputIndex].url + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
         iframe = document.getElementById('videoIframe');
@@ -136,6 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.dpad div, .center-buttons div, .action-buttons div').forEach(button => {
         button.addEventListener('click', () => {
+            console.log('Button clicked:', button.getAttribute('data-action'));
+            buttonPressed(button.getAttribute('data-action'));
+        });
+        button.addEventListener('touchstart', () => {
+            console.log('Button touched:', button.getAttribute('data-action'));
             buttonPressed(button.getAttribute('data-action'));
         });
     });
