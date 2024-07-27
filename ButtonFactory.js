@@ -3,7 +3,15 @@ class ButtonFactory {
         const state = TVState.instance;
         switch(action) {
             case 'START':
-                return state.togglePower.bind(state);
+                return () => {
+                    state.togglePower();
+                    if (state.powerOn) {
+                        document.getElementById('screen').innerHTML = "<div class='starting-up'>One moment, starting up...</div>";
+                        setTimeout(() => {
+                            state.notifyObservers();
+                        }, 3000);
+                    }
+                };
             case 'SELECT':
                 return state.changeInput.bind(state);
             case 'UP':
