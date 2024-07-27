@@ -60,4 +60,11 @@ class TVState {
             this.speed -= 0.1;
             this.speed = parseFloat(this.speed.toFixed(1));
             this.notifyObservers();
+        }speedDown() {
+        if (this.speed > 0.5) {
+            this.speed -= 0.1;
+            this.speed = parseFloat(this.speed.toFixed(1));
+            this.notifyObservers();
         }
+    }
+}
