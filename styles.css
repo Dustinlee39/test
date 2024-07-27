@@ -9,6 +9,7 @@ body {
     height: 100vh;
     font-family: Arial, sans-serif;
     user-select: none; /* Disable text selection */
+    -webkit-tap-highlight-color: transparent; /* Remove highlight on tap */
 }
 #container {
     position: relative;
